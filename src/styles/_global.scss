@@ -1,0 +1,13 @@
+@use "./index" as *;
+
+* {
+  border: 0;
+  box-sizing: border-box;
+  font-family: $primary-group;
+  font-size: 16px;
+  letter-spacing: 0.6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+}

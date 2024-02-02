@@ -1,0 +1,82 @@
+{
+  "name": "poker-tournament-web",
+  "description": "TODO",
+  "version": "1.0.0",
+  "license": "MIT",
+  "private": true,
+  "homepage": "TODO",
+  "main": "src/pages/_app.tsx",
+  "author": {
+    "name": "TODO",
+    "email": "TODO"
+  },
+  "scripts": {
+    "build": "npm run lint && vite build",
+    "coverage": "vitest run --coverage",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "dev": "vite --open",
+    "eslint": "eslint --fix src/**/*.{js,jsx,ts,tsx} vite.config.ts",
+    "lint": "npm run eslint & npm run prettier & npm run stylelint",
+    "prettier": "prettier --write src/**/*.{js,jsx,ts,tsx} vite.config.ts",
+    "start": "vite preview --open",
+    "stylelint": "stylelint --fix src/**/*.{module.scss,scss}",
+    "test": "vitest --run"
+  },
+  "dependencies": {
+    "@svgr/webpack": "^7.0.0",
+    "@types/lodash": "^4.14.202",
+    "axios": "^1.6.7",
+    "lodash": "^4.17.21",
+    "mobx": "^6.12.0",
+    "mobx-react-lite": "^4.0.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-inlinesvg": "^4.1.1",
+    "react-router-dom": "^6.21.3",
+    "sharp": "^0.32.6",
+    "uuid": "^9.0.1",
+    "vite-plugin-pwa": "^0.16.7",
+    "vite-plugin-svgr": "^3.3.0",
+    "workbox-window": "^7.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^18.19.10",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "@types/uuid": "^9.0.8",
+    "@typescript-eslint/eslint-plugin": "^6.20.0",
+    "@typescript-eslint/parser": "^6.20.0",
+    "@vitejs/plugin-react-swc": "^3.5.0",
+    "@vitest/coverage-v8": "^0.34.6",
+    "cypress": "^13.6.3",
+    "eslint": "^8.56.0",
+    "eslint-plugin-cypress": "^2.15.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "jsdom": "^22.1.0",
+    "postcss-scss": "^4.0.9",
+    "prettier": "^3.2.4",
+    "sass": "^1.70.0",
+    "stylelint": "^15.11.0",
+    "stylelint-config-standard": "^34.0.0",
+    "typescript": "^5.3.3",
+    "typescript-plugin-css-modules": "^5.0.2",
+    "vite": "^4.5.2",
+    "vite-tsconfig-paths": "^4.3.1",
+    "vitest": "^0.34.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "TODO"
+  },
+  "keywords": [
+    "brazil",
+    "mobx",
+    "poker",
+    "react",
+    "sass",
+    "typescript",
+    "vite"
+  ]
+}
