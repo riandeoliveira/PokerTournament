@@ -1,6 +1,6 @@
 import type { AxiosResponse } from "axios";
 
-export namespace GetTotalPremio {
+export namespace GetTotalPrize {
   export interface ApiResponse {
     qtd_addons: number;
     qtd_buyins: number;

@@ -1,6 +1,6 @@
 import type { AxiosResponse } from "axios";
 
-export namespace GetAllTournaments {
+export namespace FallPlayer {
   export interface ApiResponse {
     addon_valor: number;
     buyin_valor: number;
@@ -12,7 +12,7 @@ export namespace GetAllTournaments {
     rebuy_valor: number;
   }
 
-  export type Result = Promise<ApiResponse[] | null>;
+  export type Result = Promise<ApiResponse | null>;
 
-  export interface Response extends AxiosResponse<ApiResponse[]> {}
+  export interface Response extends AxiosResponse<ApiResponse> {}
 }
