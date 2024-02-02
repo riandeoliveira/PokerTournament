@@ -1,0 +1,16 @@
+@use "../../styles/" as *;
+
+.aside_label_component {
+  display: flex;
+  flex-direction: column;
+  text-align: end;
+}
+
+.label {
+  color: $primary;
+  text-transform: uppercase;
+}
+
+.value {
+  color: $secondary;
+}

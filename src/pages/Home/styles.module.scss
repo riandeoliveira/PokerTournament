@@ -1,6 +1,14 @@
 @use "../../styles" as *;
 
-.page {
+.aside {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+}
+
+.footer {
+  position: fixed;
+  bottom: 20px;
   display: flex;
-  justify-content: center;
+  left: 20px;
 }

@@ -1,0 +1,19 @@
+@use "../../styles/" as *;
+
+.player_level_area_component {
+  display: flex;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  flex-direction: column;
+  text-align: end;
+}
+
+.label {
+  color: $primary;
+  text-transform: uppercase;
+}
+
+.value {
+  color: $secondary;
+}

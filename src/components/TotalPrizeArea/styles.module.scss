@@ -1,0 +1,37 @@
+@use "../../styles/" as *;
+
+.total_prize_area_component {
+  display: flex;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.total_container {
+  display: flex;
+  flex-direction: column;
+}
+
+.total_label {
+  color: $secondary;
+}
+
+.total_value {
+  color: $primary;
+}
+
+.footer_container {
+  display: flex;
+  gap: 24px;
+}
+
+.footer_label {
+  color: $primary;
+  text-transform: uppercase;
+}
+
+.footer_value {
+  color: $secondary;
+}
