@@ -13,5 +13,9 @@
 }
 
 body {
-  background-color: $background;
+  font-family: $primary-font;
+  background-color: #030303;
+  // background-image: url("../assets/bg-6.svg");
+  // background-repeat: no-repeat;
+  // background-size: cover;
 }
