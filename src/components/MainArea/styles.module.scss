@@ -11,13 +11,20 @@
 }
 
 .s1 {
+  text-shadow: 0 0 32px $primary;
+  font-size: 256px;
   color: $primary;
+  font-weight: bold;
 }
 
 .s2 {
+  font-size: 96px;
+  font-weight: bold;
   color: $secondary;
 }
 
 .s3 {
+  font-size: 64px;
+  font-weight: bold;
   color: $secondary;
 }

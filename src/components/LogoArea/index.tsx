@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 export const LogoArea = (): ReactElement => {
   return (
     <div className={styles.logo_area_component}>
-      <SVG src={logo} />
+      <SVG src={logo} width={200} height={200} />
     </div>
   );
 };

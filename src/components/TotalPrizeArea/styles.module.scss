@@ -15,10 +15,15 @@
 }
 
 .total_label {
+  font-size: 32px;
+  font-weight: bold;
+  text-transform: uppercase;
   color: $secondary;
 }
 
 .total_value {
+  font-size: 48px;
+  font-weight: bold;
   color: $primary;
 }
 
@@ -27,11 +32,20 @@
   gap: 24px;
 }
 
+.footer_label_value {
+  display: flex;
+  gap: 8px;
+}
+
 .footer_label {
+  font-size: 24px;
+  font-weight: bold;
   color: $primary;
   text-transform: uppercase;
 }
 
 .footer_value {
+  font-weight: bold;
+  font-size: 24px;
   color: $secondary;
 }
