@@ -4,4 +4,9 @@
   position: fixed;
   right: 20px;
   bottom: 20px;
+  border-radius: 100%;
+}
+
+.sla {
+  filter: drop-shadow(0 0 32px $secondary);
 }
