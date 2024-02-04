@@ -8,12 +8,12 @@
 
 .label {
   color: $primary;
-  text-shadow: 0 0 32px $primary;
   font-size: 36px;
+  text-shadow: 0 0 32px $primary;
 }
 
 .value {
+  color: $secondary;
   font-size: 36px;
   text-shadow: 0 0 32px $secondary;
-  color: $secondary;
 }

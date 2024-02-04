@@ -1,10 +1,10 @@
 @use "../../styles/" as *;
 
 .logo_area_component {
+  border-radius: 100%;
+  bottom: 20px;
   position: fixed;
   right: 20px;
-  bottom: 20px;
-  border-radius: 100%;
 }
 
 .sla {

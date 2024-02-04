@@ -1,12 +1,12 @@
 @use "../../styles/" as *;
 
 .total_prize_area_component {
-  display: flex;
-  position: fixed;
   bottom: 20px;
-  left: 20px;
+  display: flex;
   flex-direction: column;
   gap: 24px;
+  left: 20px;
+  position: fixed;
 }
 
 .total_container {
@@ -15,15 +15,15 @@
 }
 
 .total_label {
+  color: $secondary;
   font-size: 48px;
   text-shadow: 0 0 32px $secondary;
-  color: $secondary;
 }
 
 .total_value {
+  color: $primary;
   font-size: 64px;
   text-shadow: 0 0 32px $primary;
-  color: $primary;
 }
 
 .footer_container {
@@ -37,13 +37,13 @@
 }
 
 .footer_label {
-  text-shadow: 0 0 32px $primary;
-  font-size: 32px;
   color: $primary;
+  font-size: 32px;
+  text-shadow: 0 0 32px $primary;
 }
 
 .footer_value {
+  color: $secondary;
   font-size: 32px;
   text-shadow: 0 0 32px $secondary;
-  color: $secondary;
 }
