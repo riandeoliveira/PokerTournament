@@ -10,19 +10,19 @@
   transform: translate(-50%, -50%);
 }
 
-.s1 {
+.primary_value {
   color: $primary;
   font-size: 256px;
   text-shadow: 0 0 32px $primary;
 }
 
-.s2 {
+.secondary_value {
   color: $secondary;
   font-size: 64px;
   text-shadow: 0 0 32px $secondary;
 }
 
-.s3 {
+.tertiary_value {
   color: $secondary;
   font-size: 48px;
   text-shadow: 0 0 32px $secondary;

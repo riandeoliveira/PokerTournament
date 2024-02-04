@@ -1,3 +1,4 @@
+import { TotalPrizeLabel } from "components/TotalPrizeLabel";
 import { observer } from "mobx-react-lite";
 import type { ReactElement } from "react";
 import styles from "./styles.module.scss";
@@ -10,18 +11,9 @@ export const TotalPrizeArea = observer((): ReactElement => {
         <span className={styles.total_value}>R$ 650,00</span>
       </div>
       <div className={styles.footer_container}>
-        <div className={styles.footer_label_value}>
-          <span className={styles.footer_label}>Rebuys</span>
-          <span className={styles.footer_value}>41</span>
-        </div>
-        <div className={styles.footer_label_value}>
-          <span className={styles.footer_label}>Buyins</span>
-          <span className={styles.footer_value}>9</span>
-        </div>
-        <div className={styles.footer_label_value}>
-          <span className={styles.footer_label}>Add Ons</span>
-          <span className={styles.footer_value}>5</span>
-        </div>
+        <TotalPrizeLabel label="Rebuys" value={41} />
+        <TotalPrizeLabel label="Buyins" value={9} />
+        <TotalPrizeLabel label="Add Ons" value={5} />
       </div>
     </div>
   );

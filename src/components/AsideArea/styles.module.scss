@@ -1,0 +1,10 @@
+@use "../../styles/" as *;
+
+.aside_area_component {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: fixed;
+  right: 20px;
+  top: 20px;
+}
