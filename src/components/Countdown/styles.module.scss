@@ -1,0 +1,7 @@
+@use "../../styles" as *;
+
+.countdown {
+  color: $primary;
+  font-size: 256px;
+  text-shadow: 0 0 32px $primary;
+}

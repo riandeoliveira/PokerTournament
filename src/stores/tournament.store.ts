@@ -14,6 +14,7 @@ export class TournamentStore {
   public small: number;
   public stackMedium: number;
   public started: boolean;
+  public startedAt: string;
   public totalChips: number;
   public totalPlayers: number;
   public totalPrize: number;
@@ -31,11 +32,16 @@ export class TournamentStore {
     this.small = 0;
     this.stackMedium = 0;
     this.started = false;
+    this.startedAt = new Date().toString();
     this.totalChips = 0;
     this.totalPlayers = 0;
     this.totalPrize = 0;
 
     makeAutoObservable(this);
+  }
+
+  public decrementCountdown(): void {
+    this.setCountdown(this.countdown - 1);
   }
 
   public setAddons(addOns: number): void {
@@ -84,6 +90,10 @@ export class TournamentStore {
 
   public setStarted(started: boolean): void {
     this.started = started;
+  }
+
+  public setStartedAt(startedAt: string): void {
+    this.startedAt = startedAt;
   }
 
   public setTotalChips(totalChips: number): void {

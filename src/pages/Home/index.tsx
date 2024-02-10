@@ -17,25 +17,18 @@ import { levelStore } from "stores/level.store";
 import { tournamentStore } from "stores/tournament.store";
 
 export const Home = observer((): ReactElement => {
-  const handleCountdown = (): void => {};
-
   const handleSynchronization = async (): Promise<void> => {
-    await handleGetTournamentLevel(constants.TOURNAMENT_ID);
-    await handleGetTournamentById(constants.TOURNAMENT_ID);
-    await handleGetTotalPrize();
-    await handleGetTournamentChips(constants.TOURNAMENT_ID);
-    await handleGetLevelById(levelStore.currentLevel);
-    await handleGetNextLevelById(levelStore.currentLevel);
-
-    handleCountdown();
+    if (tournamentStore.started) {
+      await Promise.all([
+        handleGetTournamentLevel(constants.TOURNAMENT_ID),
+        handleGetTournamentById(constants.TOURNAMENT_ID),
+        handleGetTotalPrize(),
+        handleGetTournamentChips(constants.TOURNAMENT_ID),
+        handleGetLevelById(levelStore.currentLevel),
+        handleGetNextLevelById(levelStore.currentLevel),
+      ]);
+    }
   };
-
-  useEffect(() => {
-    tournamentStore.countdown > 0 &&
-      setInterval(() => {
-        tournamentStore.setCountdown(tournamentStore.countdown - 1);
-      }, 1000);
-  }, [tournamentStore.countdown]);
 
   useEffect(() => {
     const intervalId = setInterval(() => {
