@@ -8,6 +8,13 @@ import styles from "./styles.module.scss";
 
 export const MainArea = observer((): ReactElement => {
   useEffect(() => {
+    if (roundStore.isFinished()) {
+      roundStore.setMinutes(roundStore.afterInterval);
+      roundStore.setSeconds(0);
+    }
+  }, [roundStore.minutes, roundStore.seconds]);
+
+  useEffect(() => {
     if (statusStore.hadBreak) {
       roundStore.setMinutes(roundStore.afterInterval);
       roundStore.setSeconds(0);

@@ -15,6 +15,14 @@ export class RoundStore {
     makeAutoObservable(this);
   }
 
+  public isFinished(): boolean {
+    return this.minutes <= 0 && this.seconds <= 0;
+  }
+
+  public restart(): void {
+    
+  }
+
   public setAfterInterval(afterInterval: number): void {
     this.afterInterval = afterInterval;
   }
