@@ -1,18 +1,58 @@
 import { AsideLabel } from "components/AsideLabel";
-import { format, intervalToDuration } from "date-fns";
+import { intervalToDuration } from "date-fns";
 import { observer } from "mobx-react-lite";
-import type { ReactElement } from "react";
+import { useEffect, useState, type ReactElement } from "react";
 import { tournamentStore } from "stores/tournament.store";
 import styles from "./styles.module.scss";
 
 export const AsideArea = observer((): ReactElement => {
-  const { hours, minutes, seconds } = intervalToDuration({
-    start: tournamentStore.breakTime,
-    end: tournamentStore.startedAt,
+  const [hours, setHours] = useState(0);
+  const [minutes, setMinutes] = useState(0);
+  const [seconds, setSeconds] = useState(0);
+
+  const date = intervalToDuration({
+    start: tournamentStore.startedAt,
+    end: tournamentStore.breakTime,
   });
 
-  const date = new Date(0, 0, 0, hours ?? 0, minutes ?? 0, seconds ?? 0);
-  const formattedTime = format(date, "HH:mm:ss");
+  useEffect(() => {
+    if (date.hours && date.minutes && date.seconds) {
+      setHours(date.hours);
+      setMinutes(date.minutes);
+      setSeconds(date.seconds);
+    }
+  }, [date.hours, date.minutes, date.seconds]);
+
+  useEffect(() => {
+    const countdownInterval = setInterval(() => {
+      if (hours === 0 && minutes === 0 && seconds === 0) {
+        clearInterval(countdownInterval);
+
+        return;
+      }
+
+      if (seconds === 0) {
+        if (minutes === 0) {
+          setHours((prevHours) => prevHours - 1);
+          setMinutes(59);
+        } else {
+          setMinutes((prevMinutes) => prevMinutes - 1);
+        }
+
+        setSeconds(59);
+      } else {
+        setSeconds((prevSeconds) => prevSeconds - 1);
+      }
+    }, 1000);
+
+    return () => clearInterval(countdownInterval);
+  }, [hours, minutes, seconds]);
+
+  const formattedHours = hours < 10 ? `0${hours}` : hours;
+  const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+  const formattedSeconds = seconds < 10 ? `0${seconds}` : seconds;
+
+  const formattedTime = `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
 
   return (
     <div className={styles.aside_area_component}>

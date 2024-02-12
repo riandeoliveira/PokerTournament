@@ -4,7 +4,7 @@ export class LevelStore {
   public currentLevel: number;
 
   public constructor() {
-    this.currentLevel = 0;
+    this.currentLevel = 1;
 
     makeAutoObservable(this);
   }
