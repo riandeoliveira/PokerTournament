@@ -6,10 +6,14 @@ export namespace GetTournamentById {
     buyin_valor: number;
     horario_intervalo: string;
     id: number;
+    intervalo_ativo: boolean;
     jogadores_atual: number;
     jogadores_total: number;
     nome_torneio: string;
     rebuy_valor: number;
+    tempo_blind_posintervalo: number;
+    tempo_blind_preintervalo: number;
+    tempo_intervalo: number;
   }
 
   export type Result = Promise<ApiResponse | null>;

@@ -1,0 +1,15 @@
+@use "../../styles" as *;
+
+.interval_area_component {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.label {
+  color: $secondary;
+  font-size: 48px;
+  text-shadow: 0 0 32px $secondary;
+}

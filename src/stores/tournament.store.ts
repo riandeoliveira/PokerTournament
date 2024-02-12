@@ -1,4 +1,3 @@
-import { constants } from "data";
 import { makeAutoObservable } from "mobx";
 
 export class TournamentStore {
@@ -6,7 +5,6 @@ export class TournamentStore {
   public big: number;
   public breakTime: string;
   public buyins: number;
-  public countdown: number;
   public currentPlayers: number;
   public nextBig: number;
   public nextSmall: number;
@@ -18,13 +16,13 @@ export class TournamentStore {
   public totalChips: number;
   public totalPlayers: number;
   public totalPrize: number;
+  public name: string;
 
   public constructor() {
     this.addOns = 0;
     this.big = 0;
     this.breakTime = new Date().toString();
     this.buyins = 0;
-    this.countdown = constants.COUNTDOWN;
     this.currentPlayers = 0;
     this.nextBig = 0;
     this.nextSmall = 0;
@@ -36,12 +34,9 @@ export class TournamentStore {
     this.totalChips = 0;
     this.totalPlayers = 0;
     this.totalPrize = 0;
+    this.name = "";
 
     makeAutoObservable(this);
-  }
-
-  public decrementCountdown(): void {
-    this.setCountdown(this.countdown - 1);
   }
 
   public setAddons(addOns: number): void {
@@ -58,10 +53,6 @@ export class TournamentStore {
 
   public setBuyins(buyins: number): void {
     this.buyins = buyins;
-  }
-
-  public setCountdown(countdown: number): void {
-    this.countdown = countdown;
   }
 
   public setCurrentPlayers(currentPlayers: number): void {
@@ -104,8 +95,12 @@ export class TournamentStore {
     this.totalPlayers = totalPlayers;
   }
 
-  public setTotalprize(totalPrize: number): void {
+  public setTotalPrize(totalPrize: number): void {
     this.totalPrize = totalPrize;
+  }
+
+  public setName(name: string): void {
+    this.name = name;
   }
 }
 

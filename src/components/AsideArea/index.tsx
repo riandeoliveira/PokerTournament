@@ -1,7 +1,10 @@
 import { AsideLabel } from "components/AsideLabel";
+import { constants } from "data";
 import { intervalToDuration } from "date-fns";
+import { handlerActivateInterval } from "features/activate-interval/handler";
 import { observer } from "mobx-react-lite";
 import { useEffect, useState, type ReactElement } from "react";
+import { statusStore } from "stores/status.store";
 import { tournamentStore } from "stores/tournament.store";
 import styles from "./styles.module.scss";
 
@@ -43,7 +46,15 @@ export const AsideArea = observer((): ReactElement => {
 
         clearInterval(countdownInterval);
 
-        // NOTE: lógica aqui
+        handlerActivateInterval(constants.TOURNAMENT_ID);
+
+        statusStore.setIsOnBreak(true);
+
+        // TODO:
+        // começa 19h, com intervalo às 22h. O intervalo sempre irá durar 20 min
+        // durante o tempo até o primeiro intervalo (3 horas), o contador principal será de 20 min
+        // após o primeiro intervalo, ele será de 15 min, até o fim do torneio
+        // durante o intervalo, só o componente IntervalArea deve estar em tela e nenhuma requisição deve ser feita
 
         return;
       }
@@ -73,7 +84,7 @@ export const AsideArea = observer((): ReactElement => {
 
   return (
     <div className={styles.aside_area_component}>
-      <AsideLabel label="Intervalo em" value={formattedTime} />
+      {!statusStore.hadBreak && <AsideLabel label="Intervalo em" value={formattedTime} />}
       <AsideLabel label="ChipCount" value={tournamentStore.totalChips.toLocaleString()} />
       <AsideLabel
         label="Stack Médio"

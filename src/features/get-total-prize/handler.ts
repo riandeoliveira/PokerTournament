@@ -7,5 +7,5 @@ export const handleGetTotalPrize = async (): Promise<void> => {
   tournamentStore.setRebuys(data?.qtd_rebuys ?? 0);
   tournamentStore.setBuyins(data?.qtd_buyins ?? 0);
   tournamentStore.setAddons(data?.qtd_addons ?? 0);
-  tournamentStore.setTotalprize(data?.valor_total ?? 0);
+  tournamentStore.setTotalPrize(data?.valor_total ?? 0);
 };

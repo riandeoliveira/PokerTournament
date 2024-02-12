@@ -41,6 +41,9 @@ dependencies:
   sharp:
     specifier: ^0.32.6
     version: 0.32.6
+  use-sound:
+    specifier: ^4.0.1
+    version: 4.0.1(react@18.2.0)
   uuid:
     specifier: ^9.0.1
     version: 9.0.1
@@ -4281,6 +4284,10 @@ packages:
       lru-cache: 6.0.0
     dev: true
 
+  /howler@2.2.4:
+    resolution: {integrity: sha512-iARIBPgcQrwtEr+tALF+rapJ8qSc+Set2GJQl7xT1MQzWaVkFebdJhR3alVlSiUf5U7nAANKuj3aWpwerocD5w==}
+    dev: false
+
   /html-encoding-sniffer@3.0.0:
     resolution: {integrity: sha512-oWv4T4yJ52iKrufjnyZPkrN0CH3QnrUqdB6In1g5Fe1mia8GmF36gnfNySxoZtxD5+NmYw1EElVXiBk93UeskA==}
     engines: {node: '>=12'}
@@ -6875,6 +6882,15 @@ packages:
       querystringify: 2.2.0
       requires-port: 1.0.0
     dev: true
+
+  /use-sound@4.0.1(react@18.2.0):
+    resolution: {integrity: sha512-hykJ86kNcu6y/FzlSHcQxhjSGMslZx2WlfLpZNoPbvueakv4OF3xPxEtGV2YmculrIaH0tPp9LtG4jgy17xMWg==}
+    peerDependencies:
+      react: '>=16.8'
+    dependencies:
+      howler: 2.2.4
+      react: 18.2.0
+    dev: false
 
   /use-sync-external-store@1.2.0(react@18.2.0):
     resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}

@@ -1,4 +1,5 @@
 import { AsideArea } from "components/AsideArea";
+import { IntervalArea } from "components/IntervalArea";
 import { LogoArea } from "components/LogoArea";
 import { MainArea } from "components/MainArea";
 import { PlayerLevelArea } from "components/PlayerLevelArea";
@@ -14,11 +15,12 @@ import { handleGetTournamentLevel } from "features/get-tournament-level/handler"
 import { observer } from "mobx-react-lite";
 import { useEffect, type ReactElement } from "react";
 import { levelStore } from "stores/level.store";
+import { statusStore } from "stores/status.store";
 import { tournamentStore } from "stores/tournament.store";
 
 export const Home = observer((): ReactElement => {
   const handleSynchronization = async (): Promise<void> => {
-    if (tournamentStore.started) {
+    if (tournamentStore.started && !statusStore.isOnBreak) {
       await Promise.all([
         handleGetTournamentLevel(constants.TOURNAMENT_ID),
         handleGetTournamentById(constants.TOURNAMENT_ID),
@@ -42,11 +44,17 @@ export const Home = observer((): ReactElement => {
     <>
       {tournamentStore.started ? (
         <>
-          <PlayerLevelArea />
-          <AsideArea />
-          <MainArea />
-          <TotalPrizeArea />
-          <LogoArea />
+          {statusStore.isOnBreak ? (
+            <IntervalArea />
+          ) : (
+            <>
+              <PlayerLevelArea />
+              <AsideArea />
+              <MainArea />
+              <TotalPrizeArea />
+              <LogoArea />
+            </>
+          )}
         </>
       ) : (
         <StartArea />

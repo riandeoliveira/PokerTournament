@@ -36,6 +36,7 @@
     "react-inlinesvg": "^4.1.1",
     "react-router-dom": "^6.21.3",
     "sharp": "^0.32.6",
+    "use-sound": "^4.0.1",
     "uuid": "^9.0.1",
     "vite-plugin-pwa": "^0.16.7",
     "vite-plugin-svgr": "^3.3.0",
