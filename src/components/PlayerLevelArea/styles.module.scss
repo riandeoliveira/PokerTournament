@@ -2,27 +2,27 @@
 
 .player_level_area_component {
   display: flex;
-  position: fixed;
-  top: 20px;
-  left: 20px;
   flex-direction: column;
+  left: 20px;
+  position: fixed;
   text-align: end;
+  top: 20px;
 }
 
-.top_label {
+.primary_label {
   color: $primary;
   font-size: 80px;
   text-shadow: 0 0 32px $primary;
 }
 
-.bottom_label {
+.secondary_label {
   color: $primary;
   font-size: 32px;
   text-shadow: 0 0 32px $primary;
 }
 
 .value {
-  font-size: 32px;
   color: $secondary;
+  font-size: 32px;
   text-shadow: 0 0 32px $secondary;
 }

@@ -1,32 +1,29 @@
 @use "../../styles/" as *;
 
 .main_area_component {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
   flex-direction: column;
+  left: 50%;
+  position: fixed;
   text-align: center;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
-.s1 {
-  text-shadow: 0 0 32px $primary;
-  font-size: 256px;
+.primary_value {
   color: $primary;
-  font-weight: bold;
+  font-size: 256px;
+  text-shadow: 0 0 32px $primary;
 }
 
-.s2 {
+.secondary_value {
+  color: $secondary;
   font-size: 64px;
-  font-weight: bold;
   text-shadow: 0 0 32px $secondary;
-  color: $secondary;
 }
 
-.s3 {
-  font-size: 48px;
-  font-weight: bold;
-  text-shadow: 0 0 32px $secondary;
+.tertiary_value {
   color: $secondary;
+  font-size: 48px;
+  text-shadow: 0 0 32px $secondary;
 }

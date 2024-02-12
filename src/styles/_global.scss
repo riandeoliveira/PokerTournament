@@ -13,11 +13,8 @@
 }
 
 body {
-  font-family: $primary-font;
+  background-color: $background;
+  font-family: $primary-group;
   font-weight: bold;
   text-transform: uppercase;
-  background-color: #030303;
-  // background-image: url("../assets/bg-6.svg");
-  // background-repeat: no-repeat;
-  // background-size: cover;
 }

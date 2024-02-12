@@ -1,24 +1,56 @@
-import { AsideLabel } from "components/AsideLabel";
+import { AsideArea } from "components/AsideArea";
 import { LogoArea } from "components/LogoArea";
 import { MainArea } from "components/MainArea";
 import { PlayerLevelArea } from "components/PlayerLevelArea";
+import { StartArea } from "components/StartArea";
 import { TotalPrizeArea } from "components/TotalPrizeArea";
+import { constants } from "data";
+import { handleGetLevelById } from "features/get-level-by-id/handler";
+import { handleGetNextLevelById } from "features/get-next-level-by-id/handler";
+import { handleGetTotalPrize } from "features/get-total-prize/handler";
+import { handleGetTournamentById } from "features/get-tournament-by-id/handler";
+import { handleGetTournamentChips } from "features/get-tournament-chips/handler";
+import { handleGetTournamentLevel } from "features/get-tournament-level/handler";
 import { observer } from "mobx-react-lite";
-import type { ReactElement } from "react";
-import styles from "./styles.module.scss";
+import { useEffect, type ReactElement } from "react";
+import { levelStore } from "stores/level.store";
+import { tournamentStore } from "stores/tournament.store";
 
 export const Home = observer((): ReactElement => {
+  const handleSynchronization = async (): Promise<void> => {
+    if (tournamentStore.started) {
+      await Promise.all([
+        handleGetTournamentLevel(constants.TOURNAMENT_ID),
+        handleGetTournamentById(constants.TOURNAMENT_ID),
+        handleGetTotalPrize(),
+        handleGetTournamentChips(constants.TOURNAMENT_ID),
+        handleGetLevelById(levelStore.currentLevel),
+        handleGetNextLevelById(levelStore.currentLevel),
+      ]);
+    }
+  };
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      handleSynchronization();
+    }, 500);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <>
-      <PlayerLevelArea />
-      <aside className={styles.aside}>
-        <AsideLabel label="Intervalo em" value="01:05:04" />
-        <AsideLabel label="ChipCount" value="1.340.000" />
-        <AsideLabel label="Stack Médio" value="47.200" />
-      </aside>
-      <MainArea />
-      <TotalPrizeArea />
-      <LogoArea />
+      {tournamentStore.started ? (
+        <>
+          <PlayerLevelArea />
+          <AsideArea />
+          <MainArea />
+          <TotalPrizeArea />
+          <LogoArea />
+        </>
+      ) : (
+        <StartArea />
+      )}
     </>
   );
 });

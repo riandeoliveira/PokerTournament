@@ -1,19 +1,18 @@
 @use "../../styles/" as *;
 
-.aside_label_component {
+.total_prize_label_component {
   display: flex;
-  flex-direction: column;
-  text-align: end;
+  gap: 8px;
 }
 
 .label {
   color: $primary;
-  font-size: 36px;
+  font-size: 32px;
   text-shadow: 0 0 32px $primary;
 }
 
 .value {
   color: $secondary;
-  font-size: 36px;
+  font-size: 32px;
   text-shadow: 0 0 32px $secondary;
 }
