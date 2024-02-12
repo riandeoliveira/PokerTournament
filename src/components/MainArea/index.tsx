@@ -8,9 +8,11 @@ import styles from "./styles.module.scss";
 
 export const MainArea = observer((): ReactElement => {
   useEffect(() => {
-    if (roundStore.isFinished()) {
+    if (roundStore.minutes <= 0 && roundStore.seconds <= 0) {
       roundStore.setMinutes(roundStore.afterInterval);
       roundStore.setSeconds(0);
+
+      roundStore.setCounter(roundStore.counter + 1);
     }
   }, [roundStore.minutes, roundStore.seconds]);
 
@@ -26,6 +28,13 @@ export const MainArea = observer((): ReactElement => {
 
   return (
     <div className={styles.main_area_component}>
+      <button
+        type="button"
+        style={{ backgroundColor: "#030303", cursor: "pointer" }}
+        onClick={() => roundStore.setCounter(1)}
+      >
+        voltar 1
+      </button>
       <span className={styles.name}>{tournamentStore.name}</span>
       <Countdown store={roundStore} />
       <span className={styles.current_value}>

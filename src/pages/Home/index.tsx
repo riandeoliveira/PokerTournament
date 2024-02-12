@@ -15,6 +15,7 @@ import { handleGetTournamentLevel } from "features/get-tournament-level/handler"
 import { observer } from "mobx-react-lite";
 import { useEffect, type ReactElement } from "react";
 import { levelStore } from "stores/level.store";
+import { roundStore } from "stores/round.store";
 import { statusStore } from "stores/status.store";
 import { tournamentStore } from "stores/tournament.store";
 
@@ -26,7 +27,7 @@ export const Home = observer((): ReactElement => {
         handleGetTournamentById(constants.TOURNAMENT_ID),
         handleGetTotalPrize(),
         handleGetTournamentChips(constants.TOURNAMENT_ID),
-        handleGetLevelById(levelStore.currentLevel),
+        handleGetLevelById(roundStore.counter),
         handleGetNextLevelById(levelStore.currentLevel),
       ]);
     }
