@@ -1,10 +1,11 @@
+import { constants } from "data";
 import type { ReactElement } from "react";
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
 
 export const Countdown = (): ReactElement => {
-  const [minutes, setMinutes] = useState(15);
-  const [seconds, setSeconds] = useState(0);
+  const [minutes, setMinutes] = useState(constants.COUNTDOWN_MINUTES);
+  const [seconds, setSeconds] = useState(constants.COUNTDOWN_SECONDS);
 
   useEffect(() => {
     const countdownInterval = setInterval(() => {

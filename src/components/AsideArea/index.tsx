@@ -16,17 +16,34 @@ export const AsideArea = observer((): ReactElement => {
   });
 
   useEffect(() => {
-    if (date.hours && date.minutes && date.seconds) {
-      setHours(date.hours);
-      setMinutes(date.minutes);
-      setSeconds(date.seconds);
+    if (hours <= 0 || minutes <= 0 || seconds <= 0) {
+      setHours(0);
+      setMinutes(0);
+      setSeconds(0);
+    }
+
+    if (
+      hours >= 0 &&
+      minutes >= 0 &&
+      seconds >= 0 &&
+      (date.hours || date.minutes || date.seconds)
+    ) {
+      setHours(date.hours ?? 0);
+      setMinutes(date.minutes ?? 0);
+      setSeconds(date.seconds ?? 0);
     }
   }, [date.hours, date.minutes, date.seconds]);
 
   useEffect(() => {
     const countdownInterval = setInterval(() => {
-      if (hours === 0 && minutes === 0 && seconds === 0) {
+      if (hours <= 0 && minutes <= 0 && seconds <= 0) {
+        setHours(0);
+        setMinutes(0);
+        setSeconds(0);
+
         clearInterval(countdownInterval);
+
+        // NOTE: lógica aqui
 
         return;
       }

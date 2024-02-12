@@ -1,4 +1,6 @@
 export const constants = {
-  COUNTDOWN: 900000,
+  COUNTDOWN_MINUTES: 20,
+  COUNTDOWN_SECONDS: 0,
+  COUNTDOWN: 600000,
   TOURNAMENT_ID: 1,
 };
