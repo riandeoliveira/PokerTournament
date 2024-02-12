@@ -7,12 +7,14 @@ import { tournamentStore } from "stores/tournament.store";
 import styles from "./styles.module.scss";
 
 export const MainArea = observer((): ReactElement => {
-  console.log(roundStore.afterInterval);
-  console.log(roundStore.beforeInterval);
-
   useEffect(() => {
-    if (statusStore.hadBreak) roundStore.setMinutes(roundStore.afterInterval);
-    else roundStore.setMinutes(roundStore.beforeInterval);
+    if (statusStore.hadBreak) {
+      roundStore.setMinutes(roundStore.afterInterval);
+      roundStore.setSeconds(0);
+    } else {
+      roundStore.setMinutes(roundStore.beforeInterval);
+      roundStore.setSeconds(0);
+    }
   }, [roundStore.afterInterval, roundStore.beforeInterval]);
 
   return (

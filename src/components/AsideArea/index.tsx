@@ -1,7 +1,7 @@
 import { AsideLabel } from "components/AsideLabel";
 import { constants } from "data";
 import { intervalToDuration } from "date-fns";
-import { handlerActivateInterval } from "features/activate-interval/handler";
+import { handleActivateInterval } from "features/activate-interval/handler";
 import { observer } from "mobx-react-lite";
 import { useEffect, useState, type ReactElement } from "react";
 import { statusStore } from "stores/status.store";
@@ -46,9 +46,9 @@ export const AsideArea = observer((): ReactElement => {
 
         clearInterval(countdownInterval);
 
-        handlerActivateInterval(constants.TOURNAMENT_ID);
-
-        statusStore.setIsOnBreak(true);
+        if (!statusStore.hadBreak) {
+          handleActivateInterval(constants.TOURNAMENT_ID);
+        }
 
         // TODO:
         // começa 19h, com intervalo às 22h. O intervalo sempre irá durar 20 min
