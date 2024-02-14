@@ -1,6 +1,7 @@
 import { Countdown } from "components/Countdown";
 import { observer } from "mobx-react-lite";
 import { useEffect, type ReactElement } from "react";
+import { levelStore } from "stores/level.store";
 import { roundStore } from "stores/round.store";
 import { statusStore } from "stores/status.store";
 import { tournamentStore } from "stores/tournament.store";
@@ -26,6 +27,12 @@ export const MainArea = observer((): ReactElement => {
 
   return (
     <div className={styles.main_area_component}>
+      <button type="button" style={{ backgroundColor: "#030303", color: "#ffc800" }} onClick={() => levelStore.setCurrentLevel(levelStore.currentLevel + 1)}>
+        próximo nível
+      </button>
+      <button type="button" style={{ backgroundColor: "#030303", color: "#ffc800" }} onClick={() => levelStore.setCurrentLevel(levelStore.currentLevel - 1)}>
+        nível anterior
+      </button>
       <span className={styles.name}>{tournamentStore.name}</span>
       <Countdown store={roundStore} />
       <span className={styles.current_value}>
